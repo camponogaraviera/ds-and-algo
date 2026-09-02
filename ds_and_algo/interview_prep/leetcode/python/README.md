@@ -9,7 +9,7 @@
   - Two Pointers Pattern
     - [ ] [Container With Most Water (LeetCode 11)](arrays_container_with_most_water.py)
   - Fast & Slow Pointers Pattern
-    - [ ] [Find the Duplicate Number (LeetCode 287)](arrays_find_duplicate_number.py)
+    - [x] [Find the Duplicate Number (LeetCode 287)](arrays_find_duplicate_number.py)
   - Sort + Adjacent Comparison Pattern
     - [ ] [Minimum Absolute Difference (LeetCode 1200)](arrays_min_absolute_difference.py)
   - Dutch National Flag Pattern (Three-Way Partitioning)
