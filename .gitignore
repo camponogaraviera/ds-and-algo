@@ -1,0 +1,63 @@
+#----- VS Code / PyCharm -----#
+
+.vscode/
+.idea/
+
+#----- Byte-compiled / Optimized / DLL files -----# 
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+#----- Python virtual environment folders -----#
+
+venv/
+env/
+.venv/
+
+#----- Distribution / Packaging -----#
+
+build/
+dist/
+*.egg-info/
+
+# Editable install markers
+*.egg
+
+#----- Pytest -----#
+
+pytest_report.xml
+
+#----- Node.js -----#
+
+# Dependencies:
+node_modules/
+
+#----- JavaScript -----#
+
+# Using Yarn instead of NPM:
+package-lock.json
+
+#----- Gitignore Cheat Sheet -----#
+
+# *.ext                  # Ignores all files with extension ".ext".
+# filename.ext           # Ignores all files named exactly "filename.ext".
+# filename*              # Ignores all files and directories starting with "filename" prefix.
+# dir/                   # Ignores any directory named "dir" at any level and all its contents.
+# !filename.ext          # Re-includes "filename.ext" if it was ignored by a previous rule and if parent directory is not ignored. 
+
+# git add -u             # To update tracked files only.
+# git rm -r --cached .   # To remove all tracked files from the index (git staging area).
+# git restore --staged . # To unstage all changes.
+
+#----- Notes -----#
+#
+# 1) Order matters: Gitignore rules are processed top to bottom. Later rules can override earlier ones. For example:
+#    ------------------
+#    dir/
+#    !dir/
+#    !dir/filename.ext
+#    ------------------
+# 2) Gitignore rules only affect untracked files. To affect tracked files, untrack the file first and then commit the change.       
+#
+#----- Gitignore Cheat Sheet -----#
