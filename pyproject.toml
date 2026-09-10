@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=40.6.0, <82", "wheel"] 
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ds_and_algo"
+authors = [
+  { name = "Lucas Camponogara Viera", email = "vieracamponogara@gmail.com" },
+]
+description = "Data Structures & Algorithms"
+readme = "README.md"
+requires-python = "==3.13.5"
+license = {file = "LICENSE"}
+keywords = ["Data Structures and Algorithms"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.urls]
+"Bug Tracker" = "https://github.com/camponogaraviera/ds-and-algo/issues"
+Documentation = "https://github.com/camponogaraviera/ds-and-algo"
+"Source Code" = "https://github.com/camponogaraviera/ds-and-algo"
+
+[dependency-groups]
+dev = [
+  "pytest==9.0.3",
+  "black==26.3.1",
+  "flake8==7.3.0",
+  "pre-commit==4.5.1",
+]
+
+[tool.setuptools.dynamic]
+version = { file = ["implementations/VERSION.txt"] }
+
+[tool.setuptools.package-data]
+implementations = ["VERSION.txt"]
+
+[tool.setuptools.packages.find]
+include = ["implementations*"]
+
+# Configuration for Black:
+[tool.black]
+line-length = 88
+target-version = ['py313']
