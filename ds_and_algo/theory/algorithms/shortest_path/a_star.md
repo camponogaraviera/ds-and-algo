@@ -13,4 +13,4 @@ A\* is an algorithm that finds the shortest path from the source node to a targe
 
 # Use Cases
 
-A\* is used in google maps.
+A\* is widely used as the foundation for shortest-path routing and pathfinding systems.
