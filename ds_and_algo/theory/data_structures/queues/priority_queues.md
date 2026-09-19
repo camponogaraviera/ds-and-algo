@@ -15,6 +15,10 @@
 
 A `Priority Queue` differs from a regular Queue (FIFO) in that each element inserted is assigned a priority. Elements with higher priorities are served before elements with lower priorities.
 
+Examples of concrete implementation of the priority queue abstract data type include: [Binomial Heap](../trees/binomial_heap.md), [Fibonacci Heap](../trees/fibonacci_heap.md), [Radix Heap](../trees/radix_heap.md).
+
+---
+
 # Use Cases
 
 A `Priority Queue` can be used to implement:
@@ -23,15 +27,21 @@ A `Priority Queue` can be used to implement:
 - VIP ticket queue for an event.
 - [Dijkstra](../../algorithms/shortest_path/dijkstra.md), for finding the shortest path in a graph.
 
+---
+
 # Implementation
 
-A `Priority Queue` can be implemented with either a [Binary Heap](../trees/binary_heap.md) or a [Balanced Binary Search Tree](../trees/binary_search_tree.md).
+A `Priority Queue` is an abstract data type (ADT) commonly implemented with a [Binary Heap](../trees/binary_heap.md) or a [Balanced Binary Search Tree](../trees/binary_search_tree.md) for efficiency, although any data structure that supports basic storage and retrieval can be used.
 
-Key features:
+Key features of a BH implementation:
 
 1. **Min-heap**: lower priority numbers come out first (this is standard for priority queues).
 
 2. **Stable Ordering**: items with the same priority are returned in insertion order (FIFO).
+
+[Van Emde Boas (vEB) tree](../trees/van_emde_boas_tree.md) can also be used to implement a `Priority Queue` .
+
+---
 
 # Big O
 
