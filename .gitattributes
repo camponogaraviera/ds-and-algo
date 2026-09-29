@@ -1,0 +1,34 @@
+# The .gitattributes file defines attributes for files and paths using pattern matching. 
+# Syntax: <pattern> <attribute1> <attribute2> ...
+# See the docs at https://git-scm.com/docs/gitattributes.
+
+# Auto-detect text files and normalize line endings to LF in the local repository, ensuring consistency across different operating systems.
+* text=auto
+
+# --- JavaScript / Web ---
+*.js   text eol=lf
+*.jsx  text eol=lf
+*.ts   text eol=lf
+*.tsx  text eol=lf
+*.json text eol=lf
+
+# --- Python ---
+*.py   text eol=lf
+
+# --- Data / Config ---
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.toml text eol=lf
+*.ini  text eol=lf
+
+# --- Docs ---
+*.md   text eol=lf
+*.txt  text eol=lf
+
+# --- Shell scripts ---
+*.sh   text eol=lf
+
+# Notes:
+## The `eol` attribute forces LF on checkout for specific file types.
+## Run `git add --renormalize .` to re-apply line-ending normalization rules to all files.
+## Run `git ls-files --eol` to inspect line endings of files in the repository.

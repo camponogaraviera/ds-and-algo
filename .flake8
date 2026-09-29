@@ -1,0 +1,18 @@
+# Keep in sync with .pre-commit-config.yaml
+
+[flake8]
+# PEP 8 character length (default is 88):
+max-line-length = 88
+
+# Disabling two PEP 8 rules to avoid conflict with Black.
+# E203: Whitespace before colon.
+# W503: Line break before binary operator.
+ignore = E203, W503  
+
+# Excluding common directories when searching files to lint:
+exclude =           
+    .git,
+    __pycache__,
+    *.egg-info,
+    .venv,
+    node_modules  

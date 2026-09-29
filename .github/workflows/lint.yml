@@ -1,0 +1,70 @@
+#####################
+# This file defines a single workflow.
+#####################
+
+#####################
+# Workflow: an automated process defined by a YAML file made up of one or more jobs that run a set of actions contained in a job.
+# Actions: the commands/tasks used to automate responses to events.
+# Event: A specific activity that occurs inside or outside GitHub.
+# name: the workflow syntax used to define the name of the GitHub workflow.
+# on: syntax used to define the GitHub events that trigger a workflow run containing a job.
+# jobs: syntax used to define the steps to control the order in which actions are run. Each job runs on a different server.
+# steps: sequence of tasks (actions) to be executed.
+# uses: attribute used to define an action. See the list of repositories for official actions available at https://github.com/actions.
+# run: attribute used to run a command-line command.
+#####################
+
+name: Lint # Name of the workflow.
+
+# on: [push, pull_request]
+on: # Trigger the workflow to run on push or pull request events.
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint: # Define an arbitrary name of the first job.
+    runs-on:
+      ubuntu-latest # Define the operating system (a.k.a runner) on which the job will run.
+      # To test on multiple OS platforms, one has to use "runs-on: ${{ matrix.os}}" followed by "strategy: matrix: os: [os1, os2,...,osn]".
+    permissions: # Define the permissions for the job.
+      issues: write # In this case, it needs to write issues.
+      pull-requests: write # In this case, it needs to write pull requests.
+    steps: # Define the steps to be executed in the job.
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v4 # Check out the repository under $GITHUB_WORKSPACE, so your workflow can access it.
+
+      # -------- Python Linting --------
+      - name: Set up Python
+        uses: actions/setup-python@v4 # Set up a Python environment for the job.
+        with:
+          python-version: "3.13.5" # Specify the version of Python to be used.
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.12.5"
+
+      - name: Install Python dependencies
+        run: uv sync --locked --no-build
+
+      - name: Run Black
+        run: uv run black --locked --no-sync --no-build black --check . # Check the code formatting using black.
+
+      - name: Run Flake8
+        run: uv run --locked --no-sync --no-build flake8 . # Check the code style using flake8.
+
+      # -------- Node.js Linting --------
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.17.0"
+          cache: "yarn"
+
+      - name: Install dependencies
+        run: yarn install --immutable --mode=skip-build
+
+      - name: Run ESLint
+        run: yarn lint
